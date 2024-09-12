@@ -3,8 +3,6 @@ version: 0.2
 phases:
   install:
     commands:
-      - git describe --tags --abbrev=0 HEAD
-      - export LATEST_TAG=$(git describe --tags --abbrev=0 HEAD)
       - echo Installing Node.js dependencies...
       - npm install
   build:
@@ -18,7 +16,7 @@ phases:
       - echo Copying scripts directory to build directory...
       - cp -R scripts/ dist/ || echo "Failed to copy scripts directory"
 artifacts:
-  name: my-app-$LATEST_TAG
+  name: my-app-build
   files:
     - '**/*'  # Include all files from the build directory
   base-directory: dist  # React build output directory
