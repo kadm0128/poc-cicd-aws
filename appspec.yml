@@ -6,6 +6,10 @@ files:
     overwrite: yes
 
 hooks:
+  BeforeInstall:
+    - location: scripts/cleanup.sh  # Script to remove old files
+      timeout: 300
+      runas: root
   AfterInstall:
     - location: scripts/restart_nginx.sh  # Optional: Script to restart Nginx
       timeout: 300
