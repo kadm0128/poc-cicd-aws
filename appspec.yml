@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /usr/share/nginx/html  # Path where Nginx serves the files
+    overwrite: yes
+
+hooks:
+  AfterInstall:
+    - location: scripts/restart_nginx.sh  # Optional: Script to restart Nginx
+      timeout: 300
+      runas: root
