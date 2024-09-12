@@ -11,6 +11,7 @@ phases:
       - npm run build
 artifacts:
   files:
+    - appspec.yml  # Make sure appspec.yml is included in the artifacts
     - '**/*'  # Include all files from the build directory
   base-directory: dist  # React build output directory
   discard-paths: no  # Flatten directory structure
