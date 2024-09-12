@@ -7,6 +7,6 @@ files:
 
 hooks:
   AfterInstall:
-    - location: scripts/restart_nginx.sh  # Optional: Script to restart Nginx
+    - location: restart_nginx.sh  # Optional: Script to restart Nginx
       timeout: 300
       runas: root

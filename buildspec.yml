@@ -9,9 +9,13 @@ phases:
     commands:
       - echo Building React app...
       - npm run build
+  post_build:
+    commands:
+      - echo Copying appspec.yml to build directory...
+      - cp appspec.yml dist/          # Adjust 'build/' if your output directory is different
+      - cp -R scripts/ dist/          # Copy any necessary scripts (e.g., restart_nginx.sh)
 artifacts:
   files:
-    - appspec.yml  # Make sure appspec.yml is included in the artifacts
     - '**/*'  # Include all files from the build directory
   base-directory: dist  # React build output directory
   discard-paths: no  # Flatten directory structure
