@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Node.js dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Building React app...
+      - npm run build
+artifacts:
+  files:
+    - '**/*'  # Include all files from the build directory
+  base-directory: dist  # React build output directory
+  discard-paths: no  # Flatten directory structure
