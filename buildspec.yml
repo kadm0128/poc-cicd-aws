@@ -12,11 +12,12 @@ phases:
   post_build:
     commands:
       - echo Copying appspec.yml to build directory...
-      - cp appspec.yml dist/ || echo "Failed to copy appspec.yml"  # Add error handling
+      - cp appspec.yml dist/"  # Add error handling
       - echo Copying scripts directory to build directory...
-      - cp -R scripts/ dist/ || echo "Failed to copy scripts directory"
+      - cp -R scripts/ dist/"
 artifacts:
   files:
     - '**/*'  # Include all files from the build directory
   base-directory: dist  # React build output directory
   discard-paths: no  # Flatten directory structure
+  name: "frontend"
